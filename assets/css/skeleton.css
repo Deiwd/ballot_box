@@ -1,0 +1,475 @@
+:root
+{
+    --th-color: #414347;
+    --base-color: #ccc7b4;
+    --base-screen: #c1c1c1;
+    --btn-default: #2c2827;
+    --btn-confirm: #47cc71;
+    --btn-correct: #f79951;
+    --btn-white: #ffffff;
+}
+
+*
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: serif, Arial, Verdana, sans-serif;
+}
+
+.container
+{
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+.invisible
+{
+    visibility: hidden;
+}
+
+#electronic-ballot-box
+{
+    display: flex;
+    padding: 40px;
+    font-size: 24px;
+    background-color: var(--base-color);
+}
+
+.screen,
+.screen *
+{
+    display: flex;
+}
+.screen
+{
+    position: relative;
+    width: 600px;
+    height: 360px;
+    overflow: hidden;
+    margin-right: 20px;
+    flex-direction: column;
+    border: 5px ridge #b9b6ab;
+    background: linear-gradient(to right, var(--btn-white), var(--base-screen));
+}
+.screen::after,
+.screen::before
+{
+    content: '';
+    position: absolute;
+    top: -25%;
+    height: 150%;
+    filter: blur(2px);
+    animation-delay: 5000ms;
+    animation-duration: 2500ms;
+    transform: rotate(40deg);
+    background: rgba(255, 255, 255, .2);
+}
+.screen::after
+{
+    left: -35%;
+    width: 30px;
+    animation-name: screen-light-one;
+}
+.screen::before
+{
+    left: -65%;
+    width: 80px;
+    animation-name: screen-light-two;
+    
+}
+@keyframes screen-light-one
+{
+    0% {left: -35%;}
+    100% {left: 160%;}
+}
+@keyframes screen-light-two
+{
+    0% {left: -65%;}
+    100% {left: 140%;}
+}
+
+.keyboard
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 40px);
+    gap: 20px;
+    padding: 30px 20px;
+    background-color: #4e4b4a;
+    background-size: 50%;
+    background-image: url('../../media/basketball.png');
+}
+.keyboard *
+{
+    display: flex;
+}
+.keyboard .key
+{
+    position: relative;
+    width: 80px;
+    height: 40px;
+    border: none;
+    font-size: .9em;
+    text-indent: -3px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: var(--btn-white);
+    outline-color: var(--base-color);
+    background-color: var(--btn-default);
+}
+.keyboard .key::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 3px;
+    right: 3px;
+    transition: all .15s cubic-bezier(0.22, 0.61, 0.36, 1);
+    background-color: #ffffff20;
+}
+.keyboard .key:active
+{
+    text-indent: 0px;
+    transform: scale(.98);
+}
+.keyboard .key:active::before
+{
+    bottom: 0px;
+    right: 0px;
+}
+.keyboard .key:nth-child(10)
+{
+    grid-column: 2/3;
+}
+.keyboard .action
+{
+    grid-column: 1/4;
+    grid-row: 5;
+    height: 50px;
+    font-size: .9em;
+    align-items: flex-end;
+    color: var(--btn-default);
+    justify-content: space-between;
+}
+.keyboard .action .key::before
+{
+    background-color: #00000040;
+}
+.keyboard .confirm
+{
+    height: 50px;
+    color: currentColor;
+    background-color: var(--btn-confirm);
+}
+.keyboard .correct
+{
+    color: currentColor;
+    background-color: var(--btn-correct);
+}
+.keyboard .white
+{
+    color: currentColor;
+    background-color: var(--btn-white);
+}
+
+
+
+
+.result-screen
+{
+    flex: 1;
+}
+.result-left--screen
+{
+    flex: 1;
+    font-size: .6em;
+    flex-direction: column;
+}
+.result-left--screen ul
+{
+    text-align: center;
+    flex-direction: column;
+}
+.result-left--screen > h1
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.result-left--screen > i
+{
+    padding: 30px 0;
+    font-size: 1.6em;
+    margin-left: 115px;
+    font-style: normal;
+}
+.result-left--screen li
+{
+    margin-bottom: 20px;
+    align-items: center;
+}
+.result-left--screen li > h3
+{
+    width: 80px;
+    font-weight: bold;
+}
+.result-left--screen li > span
+{
+    font-size: 1.4em;
+}
+.result-left--screen .partyDigits > div span
+{
+    width: 30px;
+    height: 35px;
+    outline: none;
+    font-size: 1.8em;
+    margin-right: 2px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--btn-default);
+}
+
+.displayNone
+{
+    display: none !important;
+}
+
+.warning
+{
+    font-size: 3em;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bar-loading
+{
+    width: 100%;
+    height: 50px;
+    margin: 0 20px;
+    color: var(--btn-confirm);
+    -webkit-appearance: none;
+}
+::-moz-progress-bar
+{
+    background-color: currentColor;
+}
+::-webkit-progress-value
+{
+    background-color: currentColor;
+}
+
+.warning > span
+{
+    position: absolute;
+    font-size: 0.2em;
+    opacity: .4;
+    font-family: inherit;
+}
+
+@keyframes blank
+{
+    0% { opacity: 0.05; }
+    50% { opacity: 1; }
+    100% { opacity: 0.05; }
+}
+.blank
+{
+    animation-name: blank;
+    animation-duration: 1.3s;
+    animation-iteration-count: infinite;
+}
+
+.result-right--screen
+{
+    width: 80px;
+    padding: 0 5px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+figure
+{
+    flex-direction: column;
+}
+figure.smallPicture
+{
+    transform: scale(.8);
+    -webkit-transform: scale(.8);
+    transition: all 200ms ease-in-out;
+    -webkit-transtion: all 200ms ease-in-out;
+}
+figure img
+{
+    width: 100%;
+    height: auto;
+}
+figcaption
+{
+    font-size: .6em;
+    width: 100%;
+    white-space: nowrap;
+    text-indent: 0%;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    overflow: hidden;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-name: animation-figcaption;
+}
+
+@keyframes animation-figcaption
+{
+    0% { text-indent: 0%; }
+    30% { text-indent: -100%; }
+    30.1% { text-indent: 80px;}
+    100% { text-indent: 0%;}
+}
+
+
+.guide-screen
+{
+    height: 100px;
+    font-size: .8em;
+    padding: 5px 10px;
+    flex-direction: column;
+    border-top: 1px solid var(--btn-default);
+}
+.guide-screen h3
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+.guide-screen ul
+{
+    font-weight: normal;
+    flex-direction: column;
+}
+.guide-screen li
+{
+    position: relative;
+    align-items: center;
+}
+.guide-screen li::before
+{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 1px solid #00000030;
+    background-color: var(--btn-default);
+}
+.guide-screen li:nth-child(1)::before
+{
+    background-color: var(--btn-white);
+}
+.guide-screen li:nth-child(2)::before
+{
+    background-color: var(--btn-correct);
+}
+.guide-screen li:nth-child(3)::before
+{
+    background-color: var(--btn-confirm);
+}
+
+#listCandidates
+{
+    margin: 0 auto;
+    min-width: 800px;
+    font-size: 24px;
+    text-align: left;
+}
+
+#listCandidates img
+{
+    display: block;
+    width: 100%;
+}
+
+#listCandidates thead
+{
+    font-size: .7em;
+}
+#listCandidates tbody
+{
+    font-size: .8em;
+    color: var(--btn-default);
+    
+}
+
+#listCandidates thead > tr,
+#listCandidates tbody > tr
+{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 80px repeat(3, 1fr);
+}
+
+#listCandidates tbody > tr
+{
+    margin: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--base-screen);
+}
+#listCandidates tbody > tr:last-child
+{
+    border: none;
+}
+
+#listCandidates thead > tr th
+{
+    padding: 4px 12px;
+}
+
+#listCandidates thead > tr th
+{
+    margin: 10px 0;
+    border-radius: 25px;
+    color: var(--th-color);
+    background: var(--base-color);
+}
+#listCandidates thead > tr th:first-child
+{
+    border: none;
+    background: unset;
+}
+
+#listCandidates tbody > tr td:first-child
+{
+    padding: 5px;
+    margin-right: 10px;
+    background: var(--base-color)
+}
+
+#listCandidates tbody > tr td:last-child
+{
+    font-weight: bold;
+}
+
+footer
+{
+    padding: 10px 0;
+    text-align: center;
+    color: var(--th-color);
+    background-color: var(--base-color);
+}
+footer a
+{
+    color: currentColor;
+}
+footer a:hover
+{
+    text-decoration: underline;
+}

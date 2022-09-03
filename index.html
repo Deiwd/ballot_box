@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ballot box online</title>
+        <link rel="stylesheet" href="assets/css/skeleton.css" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <script src="assets/js/script.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div id="electronic-ballot-box">
+                <div class="screen">
+                    <div class="result-screen">
+                        <div class="result-left--screen">
+                            <h1 class="invisible">Your vote for</h1>
+                            
+                            <i class="governmentPosition"></i>
+    
+                            <ul>
+                                <li class="partyDigits">
+                                    <h3>Number:</h3>
+                                    <div></div>
+                                </li>
+                                <li class="candidateName invisible">
+                                    <h3>Name:</h3>
+                                    <span></span>
+                                </li>
+                                <li class="partyName invisible">
+                                    <h3>Part:</h3>
+                                    <span></span>
+                                </li>
+                            </ul>
+    
+                            <div class="warning blank invisible"></div>
+                        </div>
+    
+                        <div class="result-right--screen invisible"></div>
+                    </div>
+    
+                    <div class="guide-screen">
+                        <h3>Guidance:</h3>
+                        <ul>
+                            <li>White button to annul the vote</li>
+                            <li>Corrige button to undo vote</li>
+                            <li>Confirm button to confirm vote</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="keyboard">
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key">0</button>
+                    
+                    <div class="action">
+                        <button class="key white">White</button>
+                        <button class="key correct">Correct</button>
+                        <button class="key confirm">Confirm</button>
+                    </div>
+                </div>
+            </div>
+    
+            <table id="listCandidates">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Candidates</th>
+                        <th>Party</th>
+                        <th>Number</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+            </table>
+
+        </div>
+
+        <footer>Ballot box online <span>2022</span> | Created by <a href="https://github.com/deiwd/" target="blank_">Deiwd</a></footer>
+
+    </body>
+</html>

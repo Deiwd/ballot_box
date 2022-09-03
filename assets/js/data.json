@@ -1,0 +1,48 @@
+[
+    {
+        "title": "City Councilor",
+        "digits": 5,
+        "candidates": [
+            {
+                "number": "38111",
+                "name": "Elegant Elephant",
+                "party": "SCH",
+                "pictures": [
+                    {"url": "38111.jpg", "subtitle": "City Councilor", "small": false}
+                ]
+            },
+            {
+                "number": "77222",
+                "name": "Lady Tiger",
+                "party": "BOOK",
+                "pictures": [
+                    {"url": "77222.jpg", "subtitle": "City Councilor", "small": false}
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Mayor",
+        "digits": 2,
+        "candidates": [
+            {
+                "number": "21",
+                "name": "Mr. Bunny",
+                "party": "BOOK",
+                "pictures": [
+                    {"url": "21.jpg", "subtitle": "Mayor"},
+                    {"url": "21_2.jpg", "subtitle": "Vice Mayor", "small": true}
+                ]
+            },
+            {
+                "number": "13",
+                "name": "Shadow Snake",
+                "party": "RED",
+                "pictures": [
+                    {"url": "13.jpg", "subtitle": "Mayor"},
+                    {"url": "13_2.jpg", "subtitle": "Vice Mayor", "small": true}
+                ]
+            }
+        ]
+    }
+]
