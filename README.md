@@ -1,4 +1,4 @@
-# <p align="center">Bullet Box Online</p>
+# Bullet Box Online
 
 <p>Website created exclusively to practice Javascript</p>
 
